@@ -1,0 +1,33 @@
+<!html>
+<head>
+    <script src="maxMode.js" type="application/javascript">
+    </script>
+    <script type="application/javascript">
+        function submitMaxMode() {
+            var str = document.getElementById("theWordsNJunk").value;
+            var labelResults = document.getElementById("results");
+            if (str != null && str.trim()!= "")
+            {
+                var maxMode= findMode(str);
+                labelResults.innerHTML = maxMode.mode + " occurred " + maxMode.occurences;
+                if (maxMode.occurences==1)
+                    labelResults.innerHTML += " time";
+                else
+                    labelResults.innerHTML += " times";
+            } else {
+                labelResults.innerHTML = "Invalid input!";
+            }
+            
+        }
+    </script>
+</head>
+<body>
+    <textarea id="theWordsNJunk" cols="40" rows="20">
+
+    </textarea>
+    <br>
+    <button id="submit" onclick="submitMaxMode()">Find Max</button>
+    <label id="results"></label>
+</body>
+
+</html>
